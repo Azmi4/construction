@@ -1,5 +1,50 @@
 .address {
   width: 100%;
+  @include tablets {
+    display: none;
+  }
+}
+
+.address__adaptive {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  @include tablets {
+    display: flex;
+    width: 100%;
+  }
+  .address__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    @include phones {
+      flex-direction: column;
+      padding-left: 30%;
+    }
+  }
+  .address__item {
+    @include phones {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.address__footer {
+  display: flex;
+  .address__list {
+    width: 100%;
+    @include phones {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .address__item {
+    @include phones {
+      margin-bottom: 10px;
+      padding-left: 25%;
+    }
+  }
 }
 
 .address__list {
@@ -25,7 +70,7 @@
 }
 
 .address__line-link:hover .address__info-text {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .address__line-text {

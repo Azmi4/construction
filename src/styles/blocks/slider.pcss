@@ -24,7 +24,10 @@
       height= "25px"
     )
     center center no-repeat;
-    margin-right: 10px;
+  margin-right: 10px;
+  @include tablets {
+    width: 60px;
+  }
 }
 
 .slider__number {
@@ -36,8 +39,8 @@
 }
 
 .slider__number-current {
-    color: #1D479B;
-    font-weight: 600;
+  color: #1d479b;
+  font-weight: 600;
 }
 
 .slider__separator {
@@ -53,7 +56,7 @@
 }
 
 .slider__number-of {
-    opacity: .4;
+  opacity: 0.4;
 }
 
 .slider__button_next {
@@ -66,4 +69,7 @@
       height= "25px"
     )
     center center no-repeat;
+  @include tablets {
+    width: 60px;
+  }
 }

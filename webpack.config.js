@@ -9,7 +9,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
-  const publicPath = '/';
+  const publicPath = "/construction/";
 
   const pcss = {
     test: /\.(p|post|)css$/,
@@ -30,7 +30,7 @@ module.exports = (env, argv) => {
     loader: "babel-loader",
     exclude: /node_modules/,
     options: {
-      presets: ['@babel/preset-env'],
+      presets: ["@babel/preset-env"],
       plugins: ["@babel/plugin-syntax-dynamic-import"]
     }
   };
@@ -123,7 +123,12 @@ module.exports = (env, argv) => {
         chunks: ["admin"]
       }),
       new SpriteLoaderPlugin({ plainSprite: true }),
-      new VueLoaderPlugin()
+      new VueLoaderPlugin(),
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
+      })
     ],
     devtool: "#eval-source-map"
   };

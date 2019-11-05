@@ -1,0 +1,32 @@
+.footer {
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding-top: 30px;
+  @include phones {
+    padding-top: 15px;
+  }
+}
+
+.footer__top {
+  display: flex;
+  @include phones {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo {
+    @include phones {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.footer__bottom {
+  margin-bottom: 30px;
+  @include phones {
+    margin-bottom: 10px;
+  }
+}

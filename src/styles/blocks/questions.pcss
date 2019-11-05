@@ -1,0 +1,100 @@
+.questions {
+  background: url("../images/content/bg/bg-questions.jpg") no-repeat top right /
+    cover;
+  position: relative;
+}
+
+.questions__transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-image: linear-gradient(
+    270deg,
+    rgba(#000, 0),
+    rgba(#193772, 1) 80%,
+    rgba(#4a4b4d, 1) 100%
+  );
+}
+
+.questions__pic {
+  position: absolute;
+  top: 57px;
+  left: 240px;
+  @include desktop {
+    left: 100px;
+  }
+  @include tablets {
+    width: 230px;
+    height: 330px;
+    top: 87px;
+    left: 50px;
+  }
+  @include phones {
+    display: none;
+  }
+}
+
+.questions__block {
+  padding-top: 75px;
+  padding-bottom: 95px;
+  margin-left: 17%;
+  @include desktop {
+    display: flex;
+  }
+  @include phones {
+    padding-top: 20px;
+    flex-direction: column;
+    margin-left: 0;
+  }
+}
+
+.questions__block-wrapper {
+  @include desktop {
+    padding-left: 15%;
+  }
+
+  @include phones {
+    padding-left: 0;
+  }
+}
+
+.questions__title {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  padding-bottom: 40px;
+  @include desktop {
+    font-size: 30px;
+  }
+}
+
+.questions__desc {
+  padding-bottom: 45px;
+  padding-right: 55%;
+  @include desktop {
+    padding-right: 37%;
+  }
+  @include tablets {
+    padding-right: 10%;
+  }
+  @include phones {
+    padding-right: 0;
+  }
+}
+
+.questions__text {
+  font-size: 25px;
+  color: #d1d1d1;
+  @include desktop {
+    font-size: 18px;
+  }
+}
+
+.questions-btn {
+  @include desktop {
+    padding: 22px 45px 30px 45px;
+  }
+}

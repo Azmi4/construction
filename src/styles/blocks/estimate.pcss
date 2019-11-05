@@ -20,31 +20,68 @@
 }
 
 .estimate__row {
-    margin-left: 15%;
-    margin-top: 150px;
+  margin-left: 7%;
+  margin-top: 130px;
+  @include phones {
+    margin-top: 100px;
+  }
 }
 
 .estimate__title {
   font-size: 45px;
   font-weight: bold;
   margin-bottom: 30px;
-  padding-right: 50%;
+  padding-right: 42%;
+  @include desktop {
+    font-size: 30px;
+  }
+  @include phones {
+    font-size: 20px;
+    padding-right: 0;
+  }
 }
 
 .estimate__text {
   font-size: 20px;
   margin-bottom: 75px;
-  padding-right: 71%;
+  padding-right: 62%;
+  @include desktop {
+    font-size: 16px;
+    padding-right: 55%;
+  }
+  @include tablets {
+    padding-right: 51%;
+  }
+  @include phones {
+    font-size: 14px;
+    padding-right: 15%;
+  }
 }
 
 .estimate__receive {
   display: flex;
   align-items: center;
+  @include phones {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .estimate__receive-text {
   font-size: 25px;
   margin-right: 50px;
+  @include desktop {
+    font-size: 18px;
+  }
+  @include phones {
+    font-size: 16px;
+    margin-bottom: 30px;
+    margin-right: 0;
+  }
+}
+
+.estimate__button {
+  padding: 20px 70px;
 }
 
 .estimate__right {

@@ -1,17 +1,69 @@
+.nav {
+  width: 100%;
+  &.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    background-color: rgba(#000, 0.8);
+    z-index: 20;
+    position: relative;
+    .nav__list {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #fff;
+      width: 100%;
+      padding-bottom: 50px;
+      @include phones {
+        height: 100vh;
+        padding-bottom: 170px;
+      }
+    }
+    .nav__item {
+      margin-bottom: 100px;
+      @include phones {
+        margin-bottom: 30px;
+      }
+    }
+    .nav__text {
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+  @include tablets {
+    display: none;
+  }
+}
+
+.nav__footer {
+  display: flex;
+  .nav__list {
+    width: 100%;
+    @include phones {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 15%;
+    }
+  }
+}
+
 .nav__list {
   display: flex;
   justify-content: space-between;
 }
 
 .nav__item {
-    padding-bottom: 3px;
-    border-bottom: 1px solid transparent;
-    &:hover {
-        border-bottom: 1px solid #1D479B;
-    }
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 1px solid #1d479b;
+  }
 }
 
 .nav__link {
   text-decoration: none;
-  color: #1D479B;
+  color: #1d479b;
 }

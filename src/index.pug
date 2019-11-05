@@ -6,7 +6,8 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title 
+    script(src="https://cdn.jsdelivr.net/npm/vue@2.6.0")
+    title Constructions
   body
     .wrapper
       .maincontent
@@ -39,9 +40,12 @@ html(lang="en")
                         p.address__line-text +7 (347) 258-81-39
                       .address__info
                         p.address__info-text заказать звонок
+              a(href="#").hamburger.hamburger--squeeze#hamburgerButton
+                .hamburger-box
+                  .hamburger-inner
             hr.divider
             .header__bottom
-              nav.nav
+              nav.nav.nav-adaptive#hamburgerMenu
                 ul.nav__list
                   li.nav__item
                     a(href="#").nav__link
@@ -55,6 +59,29 @@ html(lang="en")
                   li.nav__item
                     a(href="#").nav__link
                       p.nav__text Качество
+                address.address__adaptive
+                  ul.address__list
+                    li.address__item
+                      a(href="#").address__line-link
+                        .address__line
+                          +icon("location", "address__line-icon")
+                          p.address__line-text Россия, Уфа
+                        .address__info
+                          p.address__info-text ул.Николая Дмитриева, 21/1
+                    li.address__item
+                      a(href="#").address__line-link
+                        .address__line
+                          +icon("time", "address__line-icon")
+                          p.address__line-text 08:30 - 17:30
+                        .address__info
+                          p.address__info-text сб.-вс. - выходной
+                    li.address__item
+                      a(href="tel:+73472588139").address__line-link
+                        .address__line
+                          +icon("phone", "address__line-icon")
+                          p.address__line-text +7 (347) 258-81-39
+                        .address__info
+                          p.address__info-text заказать звонок
         section.estimate
           .estimate__left
             .estimate__row
@@ -63,7 +90,7 @@ html(lang="en")
                 p Самостоятельно проектируем на основании схемы заказчика, либо используем свои чертежи
               .estimate__receive
                 p.estimate__receive-text Рассчитаем проект в течении 1 дня!
-                button.btn Получить смету
+                button.btn.estimate__button Получить смету
           .estimate__right
         section.constructions
           .container
@@ -171,9 +198,170 @@ html(lang="en")
                     h5.order__info-subtitle Под ключ
                     .order__desc
                       p.order__desc-text Работа над проектом от идеи до воплощения
-
-
-
-        //- +image('content/user.jpg', 'user-pic')
-        //- +icon('link', 'link-class')
-        //- .icon-bg
+              .order__buttons
+                button.btn.button.order__button Получить коммерческое предложение
+            .overlay
+              form.overlay__form
+                .overlay__form-section-title
+                  h3.overlay__form-title Получить коммерческое предложение
+                .overlay__form-row(:class="{error: !nameValid}")
+                  input.overlay__form-input.overlay__form-input-name(
+                    type="text"
+                    name="name"
+                    @input="validateName"
+                    placeholder="Ваше имя"
+                    onFocus="this.placeholder=''"
+                  )
+                  .overlay__tooltip {{nameError}}
+                .overlay__form-row(:class="{error: !telValid}")
+                  input.overlay__form-input.overlay__form-input-tel#phone(
+                    type="text"
+                    name="name"
+                    @input="validateTel"
+                    placeholder="Телефон"
+                    onFocus="this.placeholder=''"
+                  )
+                  .overlay__tooltip {{telError}}
+                .overlay__form-row(:class="{error: !emailValid}")
+                  input.overlay__form-input.overlay__form-input-email(
+                    type="email"
+                    name="email"
+                    @input="validateEmail"
+                    placeholder="Электронная почта"
+                    onFocus="this.placeholder=''"
+                  )
+                  .overlay__tooltip {{emailError}}
+                button.btn.button.overlay__button Отправить
+                .overlay__confiden-desc
+                  p.overlay__confiden-desc-text Отправляя любую форму на сайте, вы соглашаеттесь с политикой конфиденциальности данного сайта.
+                button.overlay__close
+        section.certificate
+          .container
+            .section__title
+              h2.title Подтверждение качества
+            .certificate__slider
+              ul.certificate__slider-list
+                li.certificate__slider-item
+                  +image("content/certificate.jpg", "certificate__slider-img")
+                  .certificate__slider-item-icon
+                li.certificate__slider-item
+                  +image("content/certificate.jpg", "certificate__slider-img")
+                  .certificate__slider-item-icon
+                li.certificate__slider-item
+                  +image("content/certificate.jpg", "certificate__slider-img")
+                  .certificate__slider-item-icon
+                li.certificate__slider-item
+                  +image("content/certificate.jpg", "certificate__slider-img")
+                  .certificate__slider-item-icon
+              .slider__buttons
+                button.slider__button.slider__button_prev
+                .slider__number
+                  .slider__number-current 01
+                  .slider__separator
+                  .slider__number-of 15
+                button.slider__button.slider__button_next
+        section.questions
+          .questions__transition
+          .questions__pic
+            +image("content/questions-pic.png")
+          .container
+            .questions__block
+              .questions__block-wrapper
+                h2.questions__title Остались вопросы?
+                .questions__desc
+                  p.questions__text Оставьте заявку и мы перезвоним Вам в ближайшее время
+              form.form
+                .form__row
+                  input.form__input(
+                    type="text"
+                    name="name"
+                    placeholder="Ваше имя"
+                    onFocus="this.placeholder=''"
+                  )
+                .form__row
+                  input.form__input(
+                    type="text"
+                    name="email"
+                    placeholder="Телефон или почта"
+                    onFocus="this.placeholder=''"
+                  )
+                .form__button
+                  button.btn.questions-btn Отправить заявку
+        section.maps
+          .map
+          footer.footer
+            .container
+              .footer__top
+                .logo
+                  a(href="#").logo__link
+                    +image("content/logo.png", "logo__img")
+                nav.nav.nav__footer
+                  ul.nav__list
+                    li.nav__item
+                      a(href="#").nav__link
+                        p.nav__text Конструкции
+                    li.nav__item
+                      a(href="#").nav__link
+                        p.nav__text Работы
+                    li.nav__item
+                      a(href="#").nav__link
+                        p.nav__text Преимущества
+                    li.nav__item
+                      a(href="#").nav__link
+                        p.nav__text Качество
+              hr.divider__footer
+              .footer__bottom
+                address.address.address__footer
+                  ul.address__list
+                    li.address__item
+                      a(href="#").address__line-link
+                        .address__line
+                          +icon("location", "address__line-icon")
+                          p.address__line-text Россия, Уфа
+                        .address__info
+                          p.address__info-text ул.Николая Дмитриева, 21/1
+                    li.address__item
+                      a(href="#").address__line-link
+                        .address__line
+                          +icon("time", "address__line-icon")
+                          p.address__line-text 08:30 - 17:30
+                        .address__info
+                          p.address__info-text сб.-вс. - выходной
+                    li.address__item
+                      a(href="tel:+73472588139").address__line-link
+                        .address__line
+                          +icon("phone", "address__line-icon")
+                          p.address__line-text +7 (347) 258-81-39
+                        .address__info
+                          p.address__info-text заказать звонок
+                    .social
+                      .social__desc
+                        p.social__text Поделиться в соц.сетях
+                      ul.social__list
+                        li.social__item
+                          a(href="#").social__link
+                            +image("content/vk.jpg", "social__img")
+                        li.social__item
+                          a(href="#").social__link
+                            +image("content/fb.jpg", "social__img")
+                        li.social__item
+                          a(href="#").social__link
+                            +image("content/cm.jpg", "social__img")
+                        li.social__item
+                          a(href="#").social__link
+                            +image("content/yet.jpg", "social__img")
+            .confidentiality__wrapper
+              .container.confiden__container
+                .confiden__left
+                  .agency
+                    .agency__logo
+                      +icon("agency", "agency__logo-icon")
+                    .agency__desc
+                      .agency__desc-name Интернет решения
+                      p.agency__desc-text Агентство performance маркетинга    
+                .confiden__right
+                  .confiden__right-desc
+                    p.confiden__right-desc-text Отправляя любую форму на сайте, вы соглашаетесь с политикой конфиденциальности данно сайта.
+          .arrow__hero
+            a(href="#").arrow__hero-link
+              +icon("arrow", "arrow__hero-icon")

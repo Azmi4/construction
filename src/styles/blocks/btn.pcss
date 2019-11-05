@@ -4,8 +4,12 @@
   font-size: 22px;
   padding: 22px 115px 30px 115px;
   box-shadow: 0 0 10px 0 #1d479b;
+  z-index: 10;
   &:hover {
-      box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+  }
+  @include desktop {
+    font-size: 16px;
   }
 }
 
